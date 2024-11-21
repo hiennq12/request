@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "URL Redirector with Vue.js",
+  "version": "1.0",
+  "description": "Redirect specified URLs using Vue.js interface",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "<all_urls>",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      },
+      {
+        "id": "dynamicRedirectRules",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
